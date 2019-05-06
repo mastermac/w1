@@ -14,12 +14,13 @@
                 <a class="btn-floating waves-effect waves-light green z-depth-3 up-card"><i class="material-icons">arrow_upward</i></a>
                 <a class="btn-floating waves-effect waves-light red z-depth-3 del-card"><i class="material-icons">clear</i></a>
             </div>
-            <div id="cardContent">
-                <button class="btn waves-effect waves-light">Submit</button>
+            <img id="loader" src="loader.gif" class="center" height="40px"/>
+            <div id="cardContent" style="display: none;">
+                <button class="btn waves-effect waves-light" onclick="addClick()">Actionable Item in Card</button>
             </div>
         </div>
         <div class="fixed-action-btn">
-            <a id="menu" class="waves-effect waves-light btn btn-floating btn-large blue z-depth-5  modal-trigger" href="#modal1">
+            <a id="menu" class="waves-effect waves-light btn btn-floating btn-large blue z-depth-5 modal-trigger" href="#modal1">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -75,7 +76,7 @@
             document.getElementById("modal1").style.maxHeight = "100%";
             //document.getElementById("modal1").style.height = "100%";
 
-            $('.tap-target').tapTarget('open');
+            // $('.tap-target').tapTarget('open');
         });
 
         $(function () {
