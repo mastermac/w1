@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="w1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <div class="row" id="cardExp" style="padding: 1rem;">
+        <div class="card-panel home-card gyellow z-depth-3">
+            <div style="float: right; margin-top: -44px;">
+                <a class="btn-floating waves-effect waves-light yellow darken-1 z-depth-3 down-card"><i class="material-icons">arrow_downward</i></a>
+                <a class="btn-floating waves-effect waves-light green z-depth-3 up-card"><i class="material-icons">arrow_upward</i></a>
+                <a class="btn-floating waves-effect waves-light red z-depth-3 del-card"><i class="material-icons">clear</i></a>
+            </div>
+            <div id="cardContent">
+                <button class="btn waves-effect waves-light">Submit</button>
+            </div>
+        </div>
+        <div class="fixed-action-btn">
+            <a id="menu" class="waves-effect waves-light btn btn-floating btn-large blue z-depth-5  modal-trigger" href="#modal1">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
+        <div id="modal1" class="modal bottom-sheet" style="height:100%; max-height:100%;">
+            <div class="modal-content">
+                <h4 style="font-size: 2rem;">Configure Dashboard...</h4>
+                <div class="row" id="cardExpConfig" >
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+        </div>
+        <div class="tap-target blue" data-target="menu">
+            <div class="tap-target-content" style="color:white;">
+                <h5>Add More Widgets</h5>
+                <p>Tap on the + Icon to add more widgets to your dashboard!</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="w1.js"></script>
+    <script>
+        // var widgetTemplate = '<div class="card-panel home-card color-prop z-depth-3" id="customCard">\
+        //     <div style="float: right; margin-top: -44px;">\
+        //         <a class="btn-floating waves-effect waves-light yellow darken-1 z-depth-3 down-card"><i class="material-icons">arrow_downward</i></a>\
+        //         <a class="btn-floating waves-effect waves-light green z-depth-3 up-card"><i class="material-icons">arrow_upward</i></a>\
+        //         <a class="btn-floating waves-effect waves-light red z-depth-3 del-card"><i class="material-icons">clear</i></a>\
+        //     </div></div>';
+
+        // var widgetConfigureTemplate = '<div class="col s6">\
+        //                 <div class="card-panel config-card color-prop-conf z-depth-3" id="customConfigureCard">\
+        //                     <div style="display: flex;justify-content: center;">\
+        //                         <a class="modal-close btn-floating waves-effect waves-light gligh z-depth-3"><i class="material-icons">add</i></a>\
+        //                     </div>\</div></div>';
+
+        // var allWidgets = ["white","blue","pink","purple","red","yellow"];
+        // var selectedWidgets = [0];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            M.AutoInit();
+            $('#modal1').modal({
+                inDuration: 800,
+                outDuration: 800,
+                opacity: 0.5,
+                startingTop: '0%',
+                endingTop: '0%',
+                preventScrolling: false,
+                dismissible: false
+            });
+            document.getElementById("modal1").style.maxHeight = "100%";
+            //document.getElementById("modal1").style.height = "100%";
+
+            $('.tap-target').tapTarget('open');
+        });
+
+        $(function () {
+
+            // $.each(selectedWidgets, function (index, value) {
+            //     addWidgetToHome(value);
+            // });
+            // $.each(allWidgets, function (index, value) {
+            //     addWidgetToConfigurator(index, value);
+            // });
+            
+            // $('#cardExpConfig').on("click",".modal-close", function (e) {
+            //     var elem = $(this).parent().parent();
+            //     $.each(allWidgets, function (index, value) {
+            //         if (elem.hasClass('g' + value) && selectedWidgets.indexOf(index) == -1) {
+            //             selectedWidgets.push(index);
+            //             $(".g" + value).parent().remove();
+            //             addWidgetToHome(index);
+            //         }
+            //     });
+            // });
+            // $('#cardExp').on("click",".del-card", function (e) {
+            //     var elem = $(this).parent().parent();
+            //     $.each(allWidgets, function (index, value) {
+            //         if (elem.hasClass('g' + value) && selectedWidgets.indexOf(index) != -1) {
+            //             selectedWidgets.splice($.inArray(index, selectedWidgets), 1);
+            //             $(elem).fadeOut("slow", function () {
+            //                 elem.remove();
+            //             });
+            //             //reconstructSelectedWidgetsArray();
+            //             addWidgetToConfigurator(index, value);
+            //         }
+            //     });
+            // });
+
+            // $('#cardExp').on("click", ".down-card", function (e) {
+            //     moveDown($(this).parent().parent()[0]);
+            // });
+            // $('#cardExp').on("click",".up-card", function (e) {
+            //     moveUp($(this).parent().parent()[0]);
+            // });
+        });
+        // function addWidgetToHome(value) {
+        //     $("#cardExp").append(widgetTemplate);
+        //     if ($("#customCard").hasClass("color-prop")) {
+        //         $("#customCard").removeClass("color-prop");
+        //         $("#customCard").addClass('g'+allWidgets[value]);
+        //         $('#customCard').removeAttr('id');
+        //     }
+        // }
+        // function addWidgetToConfigurator(index, value) {
+        //     if (selectedWidgets.indexOf(index) == -1) {
+        //         $("#cardExpConfig").append(widgetConfigureTemplate);
+        //         if ($("#customConfigureCard").hasClass("color-prop-conf")) {
+        //             $("#customConfigureCard").removeClass("color-prop-conf");
+        //             $("#customConfigureCard").addClass('g' + value);
+        //             $('#customConfigureCard').removeAttr('id');
+        //         }
+        //     }
+        // }
+        // function moveUp(element) {
+        //     if (element.previousElementSibling) {
+        //         element.parentNode.insertBefore(element, element.previousElementSibling);
+        //         reconstructSelectedWidgetsArray();
+        //     }
+        // }
+        // function moveDown(element) {
+        //     if (element.nextElementSibling) {
+        //         element.parentNode.insertBefore(element.nextElementSibling, element);
+        //         reconstructSelectedWidgetsArray();
+        //     }
+        // }
+        // function reconstructSelectedWidgetsArray() {
+        //     selectedWidgets = [];
+        //     $('#cardExp').children('.home-card').each(function () {
+        //         var lastClass = $(this).attr('class').split(' ').pop().substring(1);
+        //         if (allWidgets.indexOf(lastClass) != -1)
+        //             selectedWidgets.push(allWidgets.indexOf(lastClass));
+        //     });
+        // }
+
+    </script>
+</body>
+</html>
