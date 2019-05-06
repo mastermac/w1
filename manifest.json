@@ -1,5 +1,6 @@
 {
-    "name": "W1",
+    "name": "Widget 1",
+    "home": "w1.html",
     "css": ["w1.css"],
     "js": ["w1.js"]
 }
