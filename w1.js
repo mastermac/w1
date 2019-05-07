@@ -2,8 +2,8 @@ function addClick(){
     window.location.href="index.html";
 }
 
-$(window).on("load", function(){
-    $.ready.then(function(){
+$(function() {
+    
     $.ajax({
         url: "https://jsonplaceholder.typicode.com/posts/3"
     }).done(function(data) {
@@ -12,5 +12,4 @@ $(window).on("load", function(){
         $("#loader").css("display", "none");
         $("#cardContent").css("display", "block");
     });
-});
 });
