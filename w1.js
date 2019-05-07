@@ -5,10 +5,10 @@ function addClick(){
 $(window).load(function() {
 
     $.ajax({
-        url: "http://dummy.restapiexample.com/api/v1/employee/34154"
+        url: "https://jsonplaceholder.typicode.com/posts/1"
     }).done(function(data) {
         var resp=JSON.parse(data);
-        $('#cardContent').append('<div><br/><br/>DATA FROM A WEB-API : '+resp.employee_name+" "+resp.employee_salary+" "+resp.employee_age+'</div>');
+        $('#cardContent').append('<div><br/>DATA FROM A WEB-API : '+resp.UserId+" "+resp.Title+" "+resp.Body+'</div>');
         $("#loader").css("display", "none");
         $("#cardContent").css("display", "block");
     });
